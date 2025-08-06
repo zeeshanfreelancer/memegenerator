@@ -1,0 +1,117 @@
+
+:root {
+  --primary-color: #4361ee;
+  --secondary-color: #3f37c9;
+  --accent-color: #4cc9f0;
+  --spinner-size-small: 30px;
+  --spinner-size-medium: 50px;
+  --spinner-size-large: 80px;
+  --spinner-thickness: 4px;
+  --animation-duration: 1s;
+}
+
+.spinner {
+  display: inline-block;
+  position: relative;
+}
+
+.spinner-inner {
+  position: relative;
+  box-sizing: border-box;
+  animation: spinner-rotate var(--animation-duration) linear infinite;
+  border-radius: 50%;
+  border-style: solid;
+  border-color: transparent;
+  border-top-color: var(--primary-color);
+  border-width: var(--spinner-thickness);
+}
+
+
+.spinner.small {
+  width: var(--spinner-size-small);
+  height: var(--spinner-size-small);
+}
+
+.spinner.medium {
+  width: var(--spinner-size-medium);
+  height: var(--spinner-size-medium);
+}
+
+.spinner.large {
+  width: var(--spinner-size-large);
+  height: var(--spinner-size-large);
+}
+
+.spinner.small .spinner-inner {
+  width: var(--spinner-size-small);
+  height: var(--spinner-size-small);
+}
+
+.spinner.medium .spinner-inner {
+  width: var(--spinner-size-medium);
+  height: var(--spinner-size-medium);
+}
+
+.spinner.large .spinner-inner {
+  width: var(--spinner-size-large);
+  height: var(--spinner-size-large);
+}
+
+
+.spinner.primary .spinner-inner {
+  border-top-color: var(--primary-color);
+}
+
+.spinner.secondary .spinner-inner {
+  border-top-color: var(--secondary-color);
+}
+
+.spinner.accent .spinner-inner {
+  border-top-color: var(--accent-color);
+}
+
+
+@keyframes spinner-rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+
+.spinner.centered {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+
+.spinner.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(255, 255, 255, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+
+.spinner.with-message {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.spinner-message {
+  color: var(--text-color);
+  font-size: 1rem;
+  text-align: center;
+}
